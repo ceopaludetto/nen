@@ -58,7 +58,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Sync Lockfile if Necessary
-        if: steps.changeset.outputs.hasChangesets == 'true'
+        if: steps.changesets.outputs.hasChangesets == 'true'
         run: |
           git checkout changeset-release/main
           pnpm install --no-frozen-lockfile
