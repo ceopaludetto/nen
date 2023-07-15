@@ -1,7 +1,7 @@
 {
 	"files": [],
 	"references": [
-		{ "path": "./apps/example" },
+		{ "path": "./docs" },
 		{ "path": "./packages/avatar" },
 		{ "path": "./packages/badge" },
 		{ "path": "./packages/button" },

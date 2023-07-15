@@ -3,11 +3,11 @@
 
 	"eslint.workingDirectories": [
 		{ "pattern": "./packages/*/" }, 
-		{ "pattern": "./apps/*/" }
+		{ "pattern": "./docs/" }
 	],
 
 	"tailwindCSS.experimental.classRegex": [["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]],
-	"tailwindCSS.experimental.configFile": "./apps/example/tailwind.config.ts",
+	"tailwindCSS.experimental.configFile": "./docs/tailwind.config.ts",
 
 	"[handlebars]": {
 		"editor.formatOnSave": false,
