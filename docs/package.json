@@ -1,6 +1,6 @@
 {
 	"name": "@reactjs-material/docs",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": true,
 	"description": "",
 	"keywords": [],
@@ -9,8 +9,8 @@
 	"main": "index.js",
 	"scripts": {},
 	"devDependencies": {
-		"@reactjs-material/configuration": "workspace:^0.0.2",
-		"@reactjs-material/tailwindcss": "workspace:^0.0.2",
+		"@reactjs-material/configuration": "workspace:^0.0.3",
+		"@reactjs-material/tailwindcss": "workspace:^0.0.3",
 		"@rushstack/eslint-patch": "^1.3.2",
 		"tailwindcss": "^3.3.3"
 	}
