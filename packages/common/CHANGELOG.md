@@ -1,5 +1,32 @@
 # @reactjs-material/common
 
+## 0.0.3
+
+### Patch Changes
+
+- [#5](https://github.com/ceopaludetto/react-material/pull/5) [`091df03`](https://github.com/ceopaludetto/react-material/commit/091df030302c60906fe5ba2bd964147bffe11381) Thanks [@ceopaludetto](https://github.com/ceopaludetto)! - Fix CI
+
+- Updated dependencies [[`091df03`](https://github.com/ceopaludetto/react-material/commit/091df030302c60906fe5ba2bd964147bffe11381)]:
+  - @reactjs-material/avatar@0.0.3
+  - @reactjs-material/badge@0.0.3
+  - @reactjs-material/button@0.0.3
+  - @reactjs-material/checkbox@0.0.3
+  - @reactjs-material/dialog@0.0.3
+  - @reactjs-material/divider@0.0.3
+  - @reactjs-material/fab@0.0.3
+  - @reactjs-material/icon-button@0.0.3
+  - @reactjs-material/navigation-bar@0.0.3
+  - @reactjs-material/navigation-drawer@0.0.3
+  - @reactjs-material/navigation-drawer-item@0.0.3
+  - @reactjs-material/navigation-item@0.0.3
+  - @reactjs-material/navigation-rail@0.0.3
+  - @reactjs-material/search@0.0.3
+  - @reactjs-material/switch@0.0.3
+  - @reactjs-material/tab-item@0.0.3
+  - @reactjs-material/tabs@0.0.3
+  - @reactjs-material/text-field@0.0.3
+  - @reactjs-material/tooltip@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes
