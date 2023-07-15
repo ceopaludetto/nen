@@ -5,6 +5,9 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches: [main]
 
+env:
+  PNPM_CACHE_FOLDER: .pnpm-store
+
 jobs:
   build:
     name: Build and Test
@@ -13,19 +16,37 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Setup Caching
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.PNPM_CACHE_FOLDER }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
       - name: Setup Bun
-        uses: antongolub/action-setup-bun@v1
-        with:
-          bun-version: 0.6.14
+        uses: oven-sh/setup-bun@v1
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
         with:
           version: 8.x.x
+  
+      - name: Setup PNPM Config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
 
-      - name: Install
+      - name: Install Dependencies
         run: pnpm install
+
+      - name: Lint
+        run: bun run lint
 
       - name: Build
         run: bun run build
+
+      - name: Test
+        run: bun run test
+
+      - name: Check Workspaces
+        run: pnpm manypkg check

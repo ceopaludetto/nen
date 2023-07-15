@@ -1,0 +1,68 @@
+name: Changesets
+
+on:
+  push:
+    branches: [main]
+
+env:
+  PNPM_CACHE_FOLDER: .pnpm-store
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup Caching
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.PNPM_CACHE_FOLDER }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+    
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.x.x
+      
+      - name: Creating .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Setup PNPM Config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+  
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm turbo --filter "./packages/*" build
+
+      - name: Create PR & Prepare Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm changeset publish
+          commit: "chore(release): version packages"
+          title: "chore(release): version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Sync Lockfile if Necessary
+        if: steps.changeset.outputs.hasChangesets == 'true'
+        run: |
+          git checkout changeset-release/main
+          pnpm install --no-frozen-lockfile
+          git add .
+          git commit -m "chore(release): sync lockfile"
+          git push origin changeset-release/main

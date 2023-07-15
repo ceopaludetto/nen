@@ -6,7 +6,6 @@
 			"outputs": ["dist/**", "build/**", "public/build/**"]
 		},
 		"lint": {},
-		"lint:fix": {},
 		"test": {},
 		"test:coverage": {
 			"outputs": ["coverage/**"]

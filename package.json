@@ -14,13 +14,16 @@
 	"scripts": {
 		"build": "turbo build",
 		"dev": "ROARR_LOG=false turbowatch **/turbowatch.ts",
-		"lint": "turbo lint",
-		"lint:fix": "turbo lint:fix",
+		"lint": "turbo lint && manypkg check",
+		"lint:fix": "turbo lint -- --fix && manypkg fix",
 		"new-package": "turbo gen package",
 		"test": "turbo test",
 		"test:coverage": "turbo test:coverage"
 	},
-	"devDependencies": {
+	"dependencies": {
+		"@changesets/changelog-github": "^0.4.8",
+		"@changesets/cli": "^2.26.2",
+		"@manypkg/cli": "^0.21.0",
 		"@turbo/gen": "^1.10.7",
 		"@types/web": "^0.0.107",
 		"bun-types": "^0.6.14",
@@ -30,5 +33,10 @@
 		"turbowatch": "^2.29.4",
 		"typescript": "^5.1.6"
 	},
-	"packageManager": "pnpm@8.6.5"
+	"packageManager": "pnpm@8.6.5",
+	"manypkg": {
+		"ignoredRules": [
+			"INTERNAL_MISMATCH"
+		]
+	}
 }
