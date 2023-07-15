@@ -5,9 +5,6 @@ on:
     types: [opened, synchronize]
     branches: [main]
 
-env:
-  PNPM_CACHE_FOLDER: .pnpm-store
-
 jobs:
   build:
     name: Build and Test
@@ -16,14 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: Setup Caching
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.PNPM_CACHE_FOLDER }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -33,8 +22,18 @@ jobs:
         with:
           version: 8.x.x
   
-      - name: Setup PNPM Config
-        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+      - name: Get PNPM Store Directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+  
+      - name: Setup Caching
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install Dependencies
         run: pnpm install
