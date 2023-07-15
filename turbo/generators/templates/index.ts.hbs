@@ -1,0 +1,21 @@
+{{#if component}}
+import { polymorphicForwardRef } from "@reactjs-material/utilities";
+
+import { classes } from "./classes";
+
+export type {{ pascalCase name }}Props = {};
+
+export const {{ pascalCase name }} = polymorphicForwardRef<"div", {{ pascalCase name }}Props>(
+	({ as: As = "div", children, className, ...rest }, ref) => {
+		console.log("only to keep the return statement")
+
+		return (
+			<As ref={ref} {...rest}>
+				{children}
+			</As>
+		);
+	},
+);
+{{else}}
+export const {{ camelCase name }} = "bar"
+{{/if}}

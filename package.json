@@ -1,0 +1,34 @@
+{
+	"name": "react-material",
+	"version": "0.0.0",
+	"private": true,
+	"description": "",
+	"keywords": [],
+	"license": "MIT",
+	"author": {
+		"name": "Carlos Eduardo de Oliveira Paludetto",
+		"email": "ceo.paludetto@gmail.com",
+		"url": "https://www.github.com/ceopaludetto"
+	},
+	"main": "index.js",
+	"scripts": {
+		"build": "turbo build",
+		"dev": "ROARR_LOG=false turbowatch **/turbowatch.ts",
+		"lint": "turbo lint",
+		"lint:fix": "turbo lint:fix",
+		"new-package": "turbo gen package",
+		"test": "turbo test",
+		"test:coverage": "turbo test:coverage"
+	},
+	"devDependencies": {
+		"@turbo/gen": "^1.10.7",
+		"@types/web": "^0.0.107",
+		"bun-types": "^0.6.14",
+		"prettier": "^3.0.0",
+		"prettier-plugin-packagejson": "^2.4.5",
+		"turbo": "^1.10.7",
+		"turbowatch": "^2.29.4",
+		"typescript": "^5.1.6"
+	},
+	"packageManager": "pnpm@8.6.5"
+}

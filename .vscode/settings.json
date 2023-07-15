@@ -1,0 +1,20 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+
+	"eslint.workingDirectories": [
+		{ "pattern": "./packages/*/" }, 
+		{ "pattern": "./apps/*/" }
+	],
+
+	"tailwindCSS.experimental.classRegex": [["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]],
+	"tailwindCSS.experimental.configFile": "./apps/example/tailwind.config.ts",
+
+	"[handlebars]": {
+		"editor.formatOnSave": false,
+		"editor.codeActionsOnSave": {
+			"source.fixAll": false
+		}
+	},
+
+	"testing.automaticallyOpenPeekView": "never"
+}

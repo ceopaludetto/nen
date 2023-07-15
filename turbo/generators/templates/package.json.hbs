@@ -1,0 +1,60 @@
+{
+	"name": "@reactjs-material/{{name}}",
+	"version": "0.0.1",
+	"description": "",
+	"keywords": [],
+	"license": "MIT",
+	"author": {
+		"name": "Carlos Eduardo de Oliveira Paludetto",
+		"email": "ceo.paludetto@gmail.com",
+		"url": "https://www.github.com/ceopaludetto"
+	},
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"import": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		},
+		"require": {
+			"types": "./dist/index.d.cts",
+			"default": "./dist/index.cjs"
+		}
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsup --silent",
+		"lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+		"lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src --fix"
+	},
+	{{#if component}}
+	"dependencies": {
+		"@ark-ui/react": "^0.7.1",
+		"@reactjs-material/utilities": "workspace:^0.0.1",
+		"@reactjs-material/tailwindcss": "workspace:^0.0.1",
+		{{#if ripple}}"@reactjs-material/ripple": "workspace:^0.0.1",{{/if}}
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	{{/if}}	
+	"devDependencies": {
+		"@reactjs-material/configuration": "workspace:^0.0.1",
+		"@rushstack/eslint-patch": "^1.3.2",
+		{{#if component}}
+		"@types/react": "^18.2.14",
+		"@types/react-dom": "^18.2.6",
+		{{/if}}
+		"eslint": "^8.43.0",
+		"tsup": "^7.1.0"
+	}{{#if component}},
+	"peerDependencies": {
+		"react": ">=18.0.0",
+		"react-dom": ">=18.0.0"
+	}
+	{{/if}}	
+}

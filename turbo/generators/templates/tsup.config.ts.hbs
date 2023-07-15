@@ -1,0 +1,10 @@
+import { defineConfig } from "tsup";
+
+export default defineConfig({
+	entry: [{{#if component}}"src/index.tsx"{{else}}"src/index.ts"{{/if}}],
+	format: ["cjs", "esm"],
+	dts: true,
+	clean: true,
+	treeshake: true,
+	sourcemap: true,
+});

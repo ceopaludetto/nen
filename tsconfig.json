@@ -1,0 +1,29 @@
+{
+	"files": [],
+	"references": [
+		{ "path": "./apps/example" },
+		{ "path": "./packages/avatar" },
+		{ "path": "./packages/badge" },
+		{ "path": "./packages/button" },
+		{ "path": "./packages/common" },
+		{ "path": "./packages/dialog" },
+		{ "path": "./packages/divider" },
+		{ "path": "./packages/fab" },
+		{ "path": "./packages/icon-button" },
+		{ "path": "./packages/navigation-bar" },
+		{ "path": "./packages/navigation-drawer" },
+		{ "path": "./packages/navigation-drawer-item" },
+		{ "path": "./packages/navigation-item" },
+		{ "path": "./packages/navigation-rail" },
+		{ "path": "./packages/ripple" },
+		{ "path": "./packages/search" },
+		{ "path": "./packages/switch" },
+		{ "path": "./packages/tab-item" },
+		{ "path": "./packages/tabs" },
+		{ "path": "./packages/tailwindcss" },
+		{ "path": "./packages/text-field" },
+		{ "path": "./packages/tooltip" },
+		{ "path": "./packages/utilities" },
+		{ "path": "./packages/checkbox" }
+	]
+}

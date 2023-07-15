@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"moduleDetection": "force",
+		"types": ["web", "bun-types"],
+		"jsx": "react-jsx",
+		"strict": true,
+		"allowJs": true,
+		"skipLibCheck": true,
+		"isolatedModules": true,
+		"esModuleInterop": true,
+
+		"noEmit": true,
+		"forceConsistentCasingInFileNames": true,
+
+		"resolveJsonModule": true
+	},
+	"exclude": ["node_modules", "turbowatch.ts"]
+}

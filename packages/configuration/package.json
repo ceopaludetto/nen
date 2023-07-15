@@ -1,0 +1,24 @@
+{
+	"name": "@reactjs-material/configuration",
+	"version": "0.0.1",
+	"author": {
+		"name": "Carlos Eduardo de Oliveira Paludetto",
+		"email": "ceo.paludetto@gmail.com",
+		"url": "https://www.github.com/ceopaludetto"
+	},
+	"type": "module",
+	"files": [
+		"eslint.base.cjs",
+		"tsconfig.base.json"
+	],
+	"dependencies": {
+		"@typescript-eslint/eslint-plugin": "^6.0.0",
+		"@typescript-eslint/parser": "^6.0.0",
+		"eslint": "^8.44.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-airbnb-typescript": "^17.1.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-prettier": "^5.0.0",
+		"eslint-plugin-tailwindcss": "^3.13.0"
+	}
+}

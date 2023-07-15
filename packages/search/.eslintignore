@@ -1,0 +1,11 @@
+# Node.js
+node_modules
+
+# Build
+dist
+
+# Turbo
+.turbo
+
+# Misc
+turbowatch.ts
