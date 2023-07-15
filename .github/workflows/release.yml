@@ -34,7 +34,7 @@ jobs:
           version: 8.x.x
       
       - name: Creating .npmrc
-        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       
@@ -45,7 +45,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm turbo --filter "./packages/*" build
+        run: bun run turbo --filter "./packages/*" build
 
       - name: Create PR & Prepare Publish
         id: changesets
